@@ -1,12 +1,14 @@
 #---------------------------------------------------
 #Title: k-means clustering on correlation of workflows and activities count
-#Date: 2019/03/12
-#Modified by: Josh N <yoshitaka.nagano@uipath.com>
+#Created Date: 2019/03/12
+#Created by: Josh N <yoshitaka.nagano@uipath.com>
+#Usage: 1.Run CodeAnalyzer  2. Place Overview.csv in data 3. Run this script
 #---------------------------------------------------
 
 #dependencies
 #install.packages("readr")
 #install.packages("ggplot2")
+#install.packages("ggthemes")
 #install.packages("reshape2")
 #install.packages("cluster")
 
@@ -19,10 +21,10 @@ library("ggthemes")
 library("reshape2")
 library("cluster")
 
-arguments = read_csv("../../data/Arguments.csv")
-issues = read_csv("../../data/Issues.csv")
+#arguments = read_csv("../../data/Arguments.csv")
+#issues = read_csv("../../data/Issues.csv")
 overview = read_csv("../../data/Overview.csv")
-variables = read_csv("../../data/Variables.csv")
+#variables = read_csv("../../data/Variables.csv")
 
 #shape it up (pivot-ish table)
 shptbl = dcast(overview, ProjectName~Category, value.var = "Value", sum)
